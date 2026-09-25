@@ -17,6 +17,7 @@ DEVICES = {
     "water": ["FACILITY_WATER_MAIN", "ICU_WATER_RESERVE"]    # 2 Water Meters
 }
 
+# Separate log file for each device type, easier to read
 LOGS = {
     "heart": os.path.join(LOG_DIR, "heart_rate_log.log"),
     "temp": os.path.join(LOG_DIR, "temperature_log.log"),
@@ -49,6 +50,7 @@ def generate_data():
         # 1. Heart Rate (Realistic Range: 40 - 160 BPM)
         for device in DEVICES["heart"]:
             hr = random.randint(45, 150)
+            # mark status based on how far the heart rate is from normal
             status = "NORMAL"
             if hr < 60 or hr > 100: status = "CRITICAL" # Bradycardia or Tachycardia
             elif 90 <= hr <= 100: status = "WARNING"
