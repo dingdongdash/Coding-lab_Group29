@@ -4,7 +4,7 @@ import time
 import sys
 import os
 import signal
-from datetime import datetime.
+from datetime import datetime
 
 # Configuration
 LOG_DIR = "active_logs"
