@@ -74,3 +74,36 @@ def generate_data():
                 f.write(f"{timestamp} | {device} | {usage} | {status}\n")
 
         time.sleep(1) # Collect data every second
+
+def start():
+    if os.path.exists(PID_FILE):
+        print("System is already running.")
+        return
+    pid = os.fork()
+    if pid > 0:
+        with open(PID_FILE, "w") as f:
+            f.write(str(pid))
+        print(f"Hospital Management System started (PID: {pid}).")
+    else:
+        generate_data()
+
+def stop():
+    if os.path.exists(PID_FILE):
+        with open(PID_FILE, "r") as f:
+            pid = int(f.read().strip())
+        try:
+            os.kill(pid, signal.SIGTERM)
+            os.remove(PID_FILE)
+            print("Hospital Management System stopped.")
+        except ProcessLookupError:
+            os.remove(PID_FILE)
+    else:
+        print("No running system found.")
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: ./hospital_system.py [start|stop]")
+        sys.exit(1)
+    cmd = sys.argv[1].lower()
+    if cmd == "start": start()
+    elif cmd == "stop": stop()
