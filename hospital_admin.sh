@@ -2,6 +2,7 @@
 
 # initialize_system — create log directories if missing
 initialize_system() {
+    # check each folder before creating it so we don't overwrite anything
     if [ -d "active_logs" ]; then
         echo "active_logs already exists"
     else
