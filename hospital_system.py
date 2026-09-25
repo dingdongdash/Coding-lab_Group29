@@ -28,7 +28,7 @@ def ensure_environment():
     if not os.path.exists(LOG_DIR):
         os.makedirs(LOG_DIR)
     
-    # Define headers with units
+    # Define headers with units and attributes
     headers = {
         "heart": "Timestamp | Device_ID | Heart_Rate (BPM) | Status\n",
         "temp": "Timestamp | Device_ID | Temperature (Celsius) | Status\n",
