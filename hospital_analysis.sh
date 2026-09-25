@@ -5,7 +5,7 @@ process_vitals() {
     echo "Processing critical vital signs..."
 
     mkdir -p reports
-    > reports/critical_alerts.txt.
+    > reports/critical_alerts.txt
 
     grep "CRITICAL" active_logs/heart_rate_log.log \
         | awk -F'|' '{
