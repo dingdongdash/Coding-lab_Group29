@@ -6,7 +6,7 @@ import os
 import signal
 from datetime import datetime
 
-# Configuration
+# Configurations
 LOG_DIR = "active_logs"
 PID_FILE = "/tmp/hospital_system.pid"
 
