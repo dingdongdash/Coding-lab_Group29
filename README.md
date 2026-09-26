@@ -65,4 +65,5 @@ python3 hospital_system.py stop
 
 ## Conclusion
 
-This project provides a reliable solution for handling medical sensor data while ensuring the continuous operation of the hospital monitoring system.
+This project offers a dependable way to manage medical sensor data while maintaining the hospital monitoring system’s continuous operation.
+
