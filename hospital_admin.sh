@@ -20,7 +20,7 @@ initialize_system() {
     if [ -d "reports" ]; then
         echo "reports already exists"
     else
-        echo "Creating reports directory..."
+        echo "Creating reports directory.."
         mkdir reports
     fi
 }
