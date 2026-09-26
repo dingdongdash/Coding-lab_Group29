@@ -35,4 +35,4 @@ archive_logs() {
     echo "Hospital log archiving completed successfully."
 }
 
-archive_logs
+archive_logs.
